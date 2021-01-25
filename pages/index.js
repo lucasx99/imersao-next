@@ -1,19 +1,37 @@
+import { delBasePath } from 'next/dist/next-server/lib/router/router'
 import styled from 'styled-components'
+import db from '../db.json'
 
-// const Title = styled.h1`
-//   font-size: 50px;
-//   color: ${({ theme }) => theme.colors.primary};
-// `
-//               
-// comentario
 
-function Title(props) {
-  return
-  <h1>
-    ${props.children}
-  </h1>
-}
+const Title = styled.h1`
+  font-size: 50px;
+  color: ${({ theme }) => theme.colors.primary};
+`
+
+const BackGroundImage = styled.div`
+  background-image: url(${db.bg});
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+`
+
+export const QuizContainer = styled.div`
+  width: 100%;
+  max-width: 350px;
+  padding-top: 45px;
+  margin: auto 10%;
+  @media screen and (max-width: 500px) {
+    margin: auto;
+    padding: 15px;
+  }
+`;
 
 export default function Home() {
-  return <Title>My page</Title>
+  return (
+    <BackGroundImage>
+      <QuizContainer>
+        Geladeira saltitante
+      </QuizContainer>
+    </BackGroundImage>
+  );
 }
